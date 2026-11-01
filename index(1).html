@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="NeoTek Solutions Ltd accompagne les entreprises dans leur transformation numérique grâce à des solutions digitales sur mesure.">
+<meta name="theme-color" content="#ffffff">
+<title>NeoTek Solutions Ltd — Des solutions digitales qui font avancer votre entreprise</title>
+<link rel="icon" href="/favicon.png" type="image/png">
+<style>
+:root{
+  --ink:#0f1f33;
+  --muted:#58697d;
+  --line:#e1e8f0;
+  --tint:#f3f7fb;
+  --blue:#0a64c8;
+  --blue-dark:#084f9f;
+  --w:1080px;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-padding-top:80px}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+body{
+  margin:0;color:var(--ink);background:#fff;line-height:1.65;
+  font-family:"Segoe UI",system-ui,-apple-system,Roboto,"Helvetica Neue",Arial,sans-serif;
+}
+a{color:inherit;text-decoration:none}
+h1,h2,h3,p,ul{margin:0}
+ul{padding:0;list-style:none}
+:focus-visible{outline:3px solid var(--blue);outline-offset:3px;border-radius:4px}
+.wrap{width:min(var(--w),calc(100% - 40px));margin-inline:auto}
+section{padding:clamp(56px,9vw,96px) 0}
+
+/* Boutons */
+.btn{
+  display:inline-block;padding:13px 24px;border-radius:8px;border:1px solid var(--blue);
+  background:var(--blue);color:#fff;font:inherit;font-weight:600;cursor:pointer;
+  transition:background .15s,color .15s;
+}
+.btn:hover{background:var(--blue-dark);border-color:var(--blue-dark)}
+.btn-ghost{background:transparent;color:var(--blue)}
+.btn-ghost:hover{background:var(--tint);color:var(--blue-dark)}
+
+/* En-tête */
+header{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.94);border-bottom:1px solid var(--line)}
+.bar{display:flex;align-items:center;justify-content:space-between;min-height:68px;gap:16px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:700;letter-spacing:.02em}
+.brand img{display:block;height:48px;width:auto}
+nav ul{display:flex;align-items:center;gap:28px}
+nav a{color:var(--muted);font-size:.95rem}
+nav a:hover{color:var(--ink)}
+nav .btn{padding:9px 18px;color:#fff;font-size:.95rem}
+nav .btn:hover{color:#fff}
+@media (max-width:640px){nav li:not(:last-child){display:none}}
+
+/* Accueil */
+.hero{padding:clamp(64px,12vw,128px) 0 clamp(56px,9vw,96px)}
+h1{max-width:15em;font-size:clamp(2.3rem,6.4vw,4.2rem);line-height:1.08;letter-spacing:-.035em}
+.lead{max-width:36em;margin:24px 0 36px;color:var(--muted);font-size:1.15rem}
+.actions{display:flex;flex-wrap:wrap;gap:12px}
+
+/* Titres de sections */
+h2{max-width:18em;font-size:clamp(1.7rem,4vw,2.5rem);line-height:1.15;letter-spacing:-.025em}
+.intro{max-width:34em;margin-top:14px;color:var(--muted)}
+
+/* Services */
+.services{background:var(--tint)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:36px 40px;margin-top:48px}
+.grid h3{padding-top:16px;border-top:2px solid var(--blue);font-size:1.1rem;margin-bottom:8px}
+.grid p{color:var(--muted);font-size:.97rem}
+
+/* À propos */
+.about{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,6vw,80px);align-items:start}
+.about p{color:var(--muted)}
+.about p+p{margin-top:14px}
+.points{margin-top:24px;display:grid;gap:10px}
+.points li{position:relative;padding-left:26px}
+.points li::before{content:"";position:absolute;left:0;top:.6em;width:10px;height:10px;border-radius:50%;background:var(--blue)}
+@media (max-width:800px){.about{grid-template-columns:1fr}}
+
+/* Contact */
+.contact{background:var(--tint)}
+.contact-grid{display:grid;grid-template-columns:5fr 7fr;gap:clamp(32px,6vw,72px);margin-top:44px;align-items:start}
+.info{display:grid;gap:22px}
+.info strong{display:block}
+.info span,.info a{color:var(--muted)}
+.info a{text-decoration:underline;text-underline-offset:3px}
+form{display:grid;grid-template-columns:1fr 1fr;gap:16px;padding:clamp(20px,4vw,32px);background:#fff;border:1px solid var(--line);border-radius:12px}
+.full{grid-column:1/-1}
+label{display:block;margin-bottom:6px;font-size:.9rem;font-weight:600}
+input,textarea{
+  width:100%;padding:11px 13px;color:inherit;font:inherit;background:#fff;
+  border:1px solid #c9d5e2;border-radius:8px;
+}
+input:focus,textarea:focus{outline:2px solid var(--blue);outline-offset:0;border-color:var(--blue)}
+textarea{min-height:130px;resize:vertical}
+form .btn{justify-self:start}
+#msg{align-self:center;color:var(--muted);font-size:.9rem}
+@media (max-width:800px){.contact-grid{grid-template-columns:1fr}}
+@media (max-width:520px){form{grid-template-columns:1fr}}
+
+/* Conteneur */
+.bg-logo-container{position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;pointer-events:none;display:flex;justify-content:center;align-items:center;overflow:hidden}
+/* Le logo */
+.bg-logo{width:min(92vw,90vmin);max-width:1000px;opacity:0;transform:scale(.25) rotate(-12deg);filter:blur(8px);will-change:transform,opacity,filter}
+/* Formation du logo au chargement */
+.bg-logo.form{animation:formLogo 2s cubic-bezier(.16,1,.3,1) forwards}
+@keyframes formLogo{
+0%{opacity:0;transform:scale(.2) rotate(-20deg);filter:blur(18px) brightness(1.4)}
+40%{opacity:.45;filter:blur(4px) brightness(1.15)}
+100%{opacity:.24;transform:scale(1) rotate(0deg);filter:blur(1.2px) brightness(1)}
+}
+/* Animations continues (après formation) */
+.bg-logo.float{animation:floatLogo 14s ease-in-out infinite,softPulse 8s ease-in-out infinite}
+/* Flottement élégant */
+@keyframes floatLogo{
+0%,100%{transform:translate(0,0) scale(1)}
+20%{transform:translate(30px,-25px) scale(1.04)}
+40%{transform:translate(-15px,20px) scale(.97)}
+60%{transform:translate(20px,30px) scale(1.02)}
+80%{transform:translate(-25px,-10px) scale(.99)}
+}
+/* Léger battement d'opacité */
+@keyframes softPulse{0%,100%{opacity:.24}50%{opacity:.34}}
+/* Sans animation si le visiteur la désactive */
+@media (prefers-reduced-motion:reduce){.bg-logo,.bg-logo.form,.bg-logo.float{animation:none;opacity:.2;transform:none;filter:none}}
+.services,.contact{background:rgba(243,247,251,.88)}
+
+/* Pied de page */
+footer{padding:28px 0;border-top:1px solid var(--line);color:var(--muted);font-size:.9rem}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 24px}
+</style>
+</head>
+<body>
+
+<!-- Logo d’arrière-plan -->
+<div class="bg-logo-container">
+<img src="logo-neotek.png" alt="NeoTek Solutions" class="bg-logo" id="bgLogo">
+</div>
+
+<header>
+  <div class="wrap bar">
+    <a class="brand" href="#accueil" aria-label="NeoTek Solutions Ltd, accueil">
+      <img src="logo-neotek.png" alt="NeoTek Solutions Ltd" width="109" height="48">
+    </a>
+    <nav aria-label="Navigation principale">
+      <ul>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#apropos">À propos</a></li>
+        <li><a class="btn" href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero" id="accueil">
+    <div class="wrap">
+      <h1>Faisons du digital un levier de croissance.</h1>
+      <p class="lead">Nous concevons des solutions numériques utiles et performantes pour accompagner durablement le développement de votre entreprise.</p>
+      <div class="actions">
+        <a class="btn" href="#contact">Démarrer un projet</a>
+        <a class="btn btn-ghost" href="#services">Voir nos services</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="services" id="services">
+    <div class="wrap">
+      <h2>Les bons outils pour aller plus loin.</h2>
+      <p class="intro">De la première idée à la mise en ligne, nous réunissons les compétences nécessaires pour créer des solutions adaptées à vos objectifs.</p>
+      <div class="grid">
+        <article>
+          <h3>Création de sites web</h3>
+          <p>Des sites modernes, rapides et adaptés à tous les écrans pour valoriser votre activité et convertir vos visiteurs.</p>
+        </article>
+        <article>
+          <h3>Applications sur mesure</h3>
+          <p>Des applications web et mobiles conçues pour simplifier vos opérations et répondre à vos besoins précis.</p>
+        </article>
+        <article>
+          <h3>Stratégie digitale</h3>
+          <p>Une présence en ligne cohérente, pensée autour de votre marque, de votre marché et de vos clients.</p>
+        </article>
+        <article>
+          <h3>Automatisation</h3>
+          <p>Automatisez les tâches répétitives, connectez vos outils et gagnez du temps pour l’essentiel.</p>
+        </article>
+        <article>
+          <h3>Maintenance et sécurité</h3>
+          <p>Nous veillons au bon fonctionnement, à la sécurité et à l’évolution de vos outils dans le temps.</p>
+        </article>
+        <article>
+          <h3>Optimisation SEO</h3>
+          <p>Améliorez votre visibilité sur les moteurs de recherche pour que vos clients vous trouvent facilement.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="apropos">
+    <div class="wrap about">
+      <h2>La technologie doit servir vos ambitions.</h2>
+      <div>
+        <p>Nous sommes une équipe de spécialistes du numérique qui accompagne les entreprises dans la création et l’évolution de leurs outils digitaux. Notre approche associe réflexion stratégique, design soigné et développement de qualité.</p>
+        <p>Chaque projet est différent : nous prenons le temps de comprendre vos besoins avant de proposer une solution concrète.</p>
+        <ul class="points">
+          <li>Un accompagnement clair, du conseil à la mise en ligne</li>
+          <li>Des solutions évolutives et adaptées à votre activité</li>
+          <li>Une attention particulière à l’expérience utilisateur</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="wrap">
+      <h2>Parlons de votre projet.</h2>
+      <p class="intro">Décrivez-nous votre idée. Nous vous répondons pour discuter des prochaines étapes, sans engagement.</p>
+      <div class="contact-grid">
+        <div class="info">
+          <p><strong>Écrivez-nous</strong><a href="mailto:contact@novadigital.fr">contact@novadigital.fr</a></p>
+          <p><strong>Nous trouver</strong><span>Paris, France — accompagnement à distance</span></p>
+          <p><strong>Disponibilité</strong><span>Du lundi au vendredi, de 9 h à 18 h</span></p>
+        </div>
+        <form id="form">
+          <div>
+            <label for="name">Votre nom</label>
+            <input id="name" type="text" autocomplete="name" required>
+          </div>
+          <div>
+            <label for="email">Votre e-mail</label>
+            <input id="email" type="email" autocomplete="email" required>
+          </div>
+          <div class="full">
+            <label for="subject">Sujet</label>
+            <input id="subject" type="text" required>
+          </div>
+          <div class="full">
+            <label for="message">Votre message</label>
+            <textarea id="message" required></textarea>
+          </div>
+          <div class="full" style="display:flex;flex-wrap:wrap;gap:12px;align-items:center">
+            <button class="btn" type="submit">Envoyer le message</button>
+            <span id="msg" role="status"></span>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© <span id="y">2026</span> NeoTek Solutions Ltd. Tous droits réservés.</span>
+    <a href="#accueil">Retour en haut</a>
+  </div>
+</footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const logo = document.getElementById('bgLogo');
+  // Lancer la formation
+  logo.classList.add('form');
+  // Une fois formé → passer en mode flottant
+  logo.addEventListener('animationend', (e) => {
+    if (e.animationName === 'formLogo') {
+      logo.classList.remove('form');
+      logo.classList.add('float');
+    }
+  });
+});
+document.getElementById("y").textContent=new Date().getFullYear();
+// Le formulaire ouvre la messagerie du visiteur avec le message prérempli.
+document.getElementById("form").addEventListener("submit",function(e){
+  e.preventDefault();
+  var v=function(id){return document.getElementById(id).value.trim()};
+  var body="Nom : "+v("name")+"\nE-mail : "+v("email")+"\n\n"+v("message");
+  location.href="mailto:contact@novadigital.fr?subject="+encodeURIComponent(v("subject"))+"&body="+encodeURIComponent(body);
+  document.getElementById("msg").textContent="Votre messagerie va s’ouvrir pour envoyer le message.";
+});
+</script>
+</body>
+</html>
