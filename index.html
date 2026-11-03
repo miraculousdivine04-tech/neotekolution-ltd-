@@ -3,9 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="NeoTek Solutions Ltd accompagne les entreprises dans leur transformation numérique grâce à des solutions digitales sur mesure.">
+<meta name="description" content="NeoTek Solutions Ltd, entreprise de technologie et de transformation digitale basée à Douala, au service des entreprises, des institutions et des entrepreneurs.">
 <meta name="theme-color" content="#ffffff">
-<title>NeoTek Solutions Ltd — Des solutions digitales qui font avancer votre entreprise</title>
+<title>NeoTek Solutions Ltd — Bâtir l’avenir, une plateforme à la fois</title>
+<link rel="preload" as="image" href="logo-neotek.png">
 <link rel="icon" href="/favicon.png" type="image/png">
 <style>
 :root{
@@ -23,6 +24,7 @@ html{scroll-padding-top:80px}
 body{
   margin:0;color:var(--ink);background:#fff;line-height:1.65;
   font-family:"Segoe UI",system-ui,-apple-system,Roboto,"Helvetica Neue",Arial,sans-serif;
+  overflow-wrap:anywhere;
 }
 a{color:inherit;text-decoration:none}
 h1,h2,h3,p,ul{margin:0}
@@ -33,40 +35,53 @@ section{padding:clamp(56px,9vw,96px) 0}
 
 /* Boutons */
 .btn{
-  display:inline-block;padding:13px 24px;border-radius:8px;border:1px solid var(--blue);
+  display:inline-block;padding:14px 26px;border-radius:8px;border:1px solid var(--blue);
   background:var(--blue);color:#fff;font:inherit;font-weight:600;cursor:pointer;
-  transition:background .15s,color .15s;
+  box-shadow:0 6px 16px -8px rgba(10,100,200,.65);
+  transition:background .15s,color .15s,transform .15s,box-shadow .15s;
 }
-.btn:hover{background:var(--blue-dark);border-color:var(--blue-dark)}
-.btn-ghost{background:transparent;color:var(--blue)}
+.btn:hover{background:var(--blue-dark);border-color:var(--blue-dark);transform:translateY(-1px)}
+.btn:active{transform:none;box-shadow:none}
+.btn-ghost{background:transparent;color:var(--blue);box-shadow:none}
 .btn-ghost:hover{background:var(--tint);color:var(--blue-dark)}
 
 /* En-tête */
-header{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.94);border-bottom:1px solid var(--line)}
+header{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.96);border-bottom:1px solid var(--line);box-shadow:0 1px 12px rgba(15,31,51,.05)}
 .bar{display:flex;align-items:center;justify-content:space-between;min-height:68px;gap:16px}
 .brand{display:flex;align-items:center;gap:10px;font-weight:700;letter-spacing:.02em}
 .brand img{display:block;height:48px;width:auto}
 nav ul{display:flex;align-items:center;gap:28px}
-nav a{color:var(--muted);font-size:.95rem}
-nav a:hover{color:var(--ink)}
+nav a{color:var(--muted);font-size:.95rem;transition:color .15s}
+nav a:hover{color:var(--blue)}
 nav .btn{padding:9px 18px;color:#fff;font-size:.95rem}
 nav .btn:hover{color:#fff}
 @media (max-width:640px){nav li:not(:last-child){display:none}}
 
 /* Accueil */
-.hero{padding:clamp(64px,12vw,128px) 0 clamp(56px,9vw,96px)}
-h1{max-width:15em;font-size:clamp(2.3rem,6.4vw,4.2rem);line-height:1.08;letter-spacing:-.035em}
-.lead{max-width:36em;margin:24px 0 36px;color:var(--muted);font-size:1.15rem}
+.hero{padding:clamp(56px,10vw,112px) 0 clamp(56px,9vw,96px)}
+.hero .wrap{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,.75fr);gap:clamp(32px,6vw,72px);align-items:center}
+h1{max-width:11em;font-size:clamp(2.4rem,6.2vw,4.4rem);line-height:1.05;letter-spacing:-.04em;font-weight:800}
+.lead{max-width:34em;margin:26px 0 38px;padding-left:18px;border-left:3px solid var(--blue);color:var(--muted);font-size:1.15rem}
 .actions{display:flex;flex-wrap:wrap;gap:12px}
+/* Motif « plateformes » : trois couches empilées (CSS pur, aucune image) */
+.stack{position:relative;height:clamp(200px,28vw,300px)}
+.stack i{position:absolute;left:0;right:12%;height:34%;border-radius:16px;border:1px solid var(--line);background:#fff;box-shadow:0 18px 32px -22px rgba(15,31,51,.35)}
+.stack i:nth-child(1){top:0;left:12%;right:0;background:var(--tint)}
+.stack i:nth-child(2){top:30%;left:6%;right:6%}
+.stack i:nth-child(3){top:60%;right:12%;left:0;background:var(--blue);border-color:var(--blue)}
+.stack i::after{content:"";position:absolute;left:8%;top:50%;width:34%;height:6px;margin-top:-3px;border-radius:3px;background:var(--line)}
+.stack i:nth-child(3)::after{background:rgba(255,255,255,.7)}
+@media (max-width:800px){.hero .wrap{grid-template-columns:1fr}.stack{display:none}}
 
 /* Titres de sections */
-h2{max-width:18em;font-size:clamp(1.7rem,4vw,2.5rem);line-height:1.15;letter-spacing:-.025em}
+h2{max-width:18em;font-size:clamp(1.7rem,4vw,2.5rem);line-height:1.15;letter-spacing:-.03em;font-weight:750}
 .intro{max-width:34em;margin-top:14px;color:var(--muted)}
 
 /* Services */
 .services{background:var(--tint)}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:36px 40px;margin-top:48px}
-.grid h3{padding-top:16px;border-top:2px solid var(--blue);font-size:1.1rem;margin-bottom:8px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px;margin-top:48px}
+.grid article{padding:22px 22px 24px;background:#fff;border:1px solid var(--line);border-top:3px solid var(--blue);border-radius:4px 4px 12px 12px}
+.grid h3{font-size:1.1rem;margin-bottom:8px;letter-spacing:-.01em}
 .grid p{color:var(--muted);font-size:.97rem}
 
 /* À propos */
@@ -75,56 +90,50 @@ h2{max-width:18em;font-size:clamp(1.7rem,4vw,2.5rem);line-height:1.15;letter-spa
 .about p+p{margin-top:14px}
 .points{margin-top:24px;display:grid;gap:10px}
 .points li{position:relative;padding-left:26px}
-.points li::before{content:"";position:absolute;left:0;top:.6em;width:10px;height:10px;border-radius:50%;background:var(--blue)}
+.points li::before{content:"";position:absolute;left:0;top:.45em;width:6px;height:11px;border:solid var(--blue);border-width:0 2.5px 2.5px 0;transform:rotate(40deg)}
 @media (max-width:800px){.about{grid-template-columns:1fr}}
 
 /* Contact */
 .contact{background:var(--tint)}
 .contact-grid{display:grid;grid-template-columns:5fr 7fr;gap:clamp(32px,6vw,72px);margin-top:44px;align-items:start}
-.info{display:grid;gap:22px}
+.info{display:grid;gap:14px}
+.info p{padding:14px 18px;background:#fff;border:1px solid var(--line);border-left:3px solid var(--blue);border-radius:8px}
 .info strong{display:block}
-.info span,.info a{color:var(--muted)}
-.info a{text-decoration:underline;text-underline-offset:3px}
-form{display:grid;grid-template-columns:1fr 1fr;gap:16px;padding:clamp(20px,4vw,32px);background:#fff;border:1px solid var(--line);border-radius:12px}
-.full{grid-column:1/-1}
+.info span{color:var(--muted)}
+form{display:grid;gap:16px;padding:clamp(20px,4vw,32px);background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:0 20px 40px -28px rgba(15,31,51,.4)}
+.form-actions{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
 label{display:block;margin-bottom:6px;font-size:.9rem;font-weight:600}
-input,textarea{
-  width:100%;padding:11px 13px;color:inherit;font:inherit;background:#fff;
-  border:1px solid #c9d5e2;border-radius:8px;
+textarea{
+  width:100%;min-height:160px;padding:11px 13px;color:inherit;font:inherit;background:#fff;
+  border:1px solid #c9d5e2;border-radius:8px;resize:vertical;
 }
-input:focus,textarea:focus{outline:2px solid var(--blue);outline-offset:0;border-color:var(--blue)}
-textarea{min-height:130px;resize:vertical}
+textarea:focus{outline:0;border-color:var(--blue);box-shadow:0 0 0 3px rgba(10,100,200,.18)}
 form .btn{justify-self:start}
 #msg{align-self:center;color:var(--muted);font-size:.9rem}
 @media (max-width:800px){.contact-grid{grid-template-columns:1fr}}
-@media (max-width:520px){form{grid-template-columns:1fr}}
 
 /* Conteneur */
 .bg-logo-container{position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;pointer-events:none;display:flex;justify-content:center;align-items:center;overflow:hidden}
-/* Le logo */
-.bg-logo{width:min(92vw,90vmin);max-width:1000px;opacity:0;transform:scale(.25) rotate(-12deg);filter:blur(8px);will-change:transform,opacity,filter}
-/* Formation du logo au chargement */
-.bg-logo.form{animation:formLogo 2s cubic-bezier(.16,1,.3,1) forwards}
+/* Le logo : seules opacité et transform sont animées (léger, sans flou) */
+.bg-logo{width:min(92vw,90vmin);max-width:1000px;opacity:0;transform:scale(.3) rotate(-12deg);will-change:transform,opacity}
+.bg-logo.form{animation:formLogo 1.6s cubic-bezier(.16,1,.3,1) forwards}
 @keyframes formLogo{
-0%{opacity:0;transform:scale(.2) rotate(-20deg);filter:blur(18px) brightness(1.4)}
-40%{opacity:.45;filter:blur(4px) brightness(1.15)}
-100%{opacity:.24;transform:scale(1) rotate(0deg);filter:blur(1.2px) brightness(1)}
+0%{opacity:0;transform:scale(.3) rotate(-14deg)}
+100%{opacity:.24;transform:scale(1) rotate(0)}
 }
-/* Animations continues (après formation) */
-.bg-logo.float{animation:floatLogo 14s ease-in-out infinite,softPulse 8s ease-in-out infinite}
-/* Flottement élégant */
+.bg-logo.float{animation:floatLogo 16s ease-in-out infinite,softPulse 8s ease-in-out infinite}
 @keyframes floatLogo{
 0%,100%{transform:translate(0,0) scale(1)}
-20%{transform:translate(30px,-25px) scale(1.04)}
-40%{transform:translate(-15px,20px) scale(.97)}
-60%{transform:translate(20px,30px) scale(1.02)}
-80%{transform:translate(-25px,-10px) scale(.99)}
+25%{transform:translate(24px,-20px) scale(1.03)}
+50%{transform:translate(-14px,18px) scale(.98)}
+75%{transform:translate(-22px,-8px) scale(1.01)}
 }
-/* Léger battement d'opacité */
-@keyframes softPulse{0%,100%{opacity:.24}50%{opacity:.34}}
+@keyframes softPulse{0%,100%{opacity:.24}50%{opacity:.32}}
 /* Sans animation si le visiteur la désactive */
 @media (prefers-reduced-motion:reduce){.bg-logo,.bg-logo.form,.bg-logo.float{animation:none;opacity:.2;transform:none;filter:none}}
-.services,.contact{background:rgba(243,247,251,.88)}
+.services,.contact{background:rgba(243,247,251,.9)}
+/* Rendu différé des sections hors écran : chargement initial plus rapide */
+#services,#apropos,#contact{content-visibility:auto;contain-intrinsic-size:auto 600px}
 
 /* Pied de page */
 footer{padding:28px 0;border-top:1px solid var(--line);color:var(--muted);font-size:.9rem}
@@ -135,19 +144,26 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 2
 
 <!-- Logo d’arrière-plan -->
 <div class="bg-logo-container">
-<img src="logo-neotek.png" alt="NeoTek Solutions" class="bg-logo" id="bgLogo">
+<img src="logo-neotek.png" alt="" class="bg-logo" id="bgLogo" decoding="async">
 </div>
+
+<!--
+  TEXTES : header et hero sont traduits par le script en bas de page (dictionnaire I18N).
+  Les autres sections sont en pointillés. Pour les remplir plus tard, ajoutez simplement
+  la clé correspondante (ex. "services.title") dans le dictionnaire FR et EN : le texte
+  remplacera automatiquement les pointillés.
+-->
 
 <header>
   <div class="wrap bar">
-    <a class="brand" href="#accueil" aria-label="NeoTek Solutions Ltd, accueil">
-      <img src="logo-neotek.png" alt="NeoTek Solutions Ltd" width="109" height="48">
+    <a class="brand" href="#accueil" data-i18n-aria="a11y.home" aria-label="NeoTek Solutions Ltd, accueil">
+      <img src="logo-neotek.png" alt="NeoTek Solutions Ltd" width="109" height="48" fetchpriority="high">
     </a>
-    <nav aria-label="Navigation principale">
+    <nav data-i18n-aria="a11y.nav" aria-label="Navigation principale">
       <ul>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#apropos">À propos</a></li>
-        <li><a class="btn" href="#contact">Contact</a></li>
+        <li><a href="#services" data-i18n="nav.services">Services</a></li>
+        <li><a href="#apropos" data-i18n="nav.about">À propos</a></li>
+        <li><a class="btn" href="#contact" data-i18n="nav.contact">Contact</a></li>
       </ul>
     </nav>
   </div>
@@ -156,43 +172,46 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 2
 <main>
   <section class="hero" id="accueil">
     <div class="wrap">
-      <h1>Faisons du digital un levier de croissance.</h1>
-      <p class="lead">Nous concevons des solutions numériques utiles et performantes pour accompagner durablement le développement de votre entreprise.</p>
-      <div class="actions">
-        <a class="btn" href="#contact">Démarrer un projet</a>
-        <a class="btn btn-ghost" href="#services">Voir nos services</a>
+      <div>
+        <h1 data-i18n="hero.title">Bâtir l’avenir, une plateforme à la fois.</h1>
+        <p class="lead" data-i18n="hero.lead">NeoTek Solutions Ltd est une entreprise de technologie et de transformation digitale basée à Douala, au service des entreprises, des institutions et des entrepreneurs.</p>
+        <div class="actions">
+          <a class="btn" href="#contact" data-i18n="hero.cta1">Démarrer un projet</a>
+          <a class="btn btn-ghost" href="#services" data-i18n="hero.cta2">Voir nos services</a>
+        </div>
       </div>
+      <div class="stack" aria-hidden="true"><i></i><i></i><i></i></div>
     </div>
   </section>
 
   <section class="services" id="services">
     <div class="wrap">
-      <h2>Les bons outils pour aller plus loin.</h2>
-      <p class="intro">De la première idée à la mise en ligne, nous réunissons les compétences nécessaires pour créer des solutions adaptées à vos objectifs.</p>
+      <h2 data-i18n="services.title">. . . . . . . . . . . . . . .</h2>
+      <p class="intro" data-i18n="services.intro">. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .</p>
       <div class="grid">
         <article>
-          <h3>Création de sites web</h3>
-          <p>Des sites modernes, rapides et adaptés à tous les écrans pour valoriser votre activité et convertir vos visiteurs.</p>
+          <h3 data-i18n="services.1.title">. . . . . . . . . . .</h3>
+          <p data-i18n="services.1.text">. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .</p>
         </article>
         <article>
-          <h3>Applications sur mesure</h3>
-          <p>Des applications web et mobiles conçues pour simplifier vos opérations et répondre à vos besoins précis.</p>
+          <h3 data-i18n="services.2.title">. . . . . . . . . . .</h3>
+          <p data-i18n="services.2.text">. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .</p>
         </article>
         <article>
-          <h3>Stratégie digitale</h3>
-          <p>Une présence en ligne cohérente, pensée autour de votre marque, de votre marché et de vos clients.</p>
+          <h3 data-i18n="services.3.title">. . . . . . . . . . .</h3>
+          <p data-i18n="services.3.text">. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .</p>
         </article>
         <article>
-          <h3>Automatisation</h3>
-          <p>Automatisez les tâches répétitives, connectez vos outils et gagnez du temps pour l’essentiel.</p>
+          <h3 data-i18n="services.4.title">. . . . . . . . . . .</h3>
+          <p data-i18n="services.4.text">. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .</p>
         </article>
         <article>
-          <h3>Maintenance et sécurité</h3>
-          <p>Nous veillons au bon fonctionnement, à la sécurité et à l’évolution de vos outils dans le temps.</p>
+          <h3 data-i18n="services.5.title">. . . . . . . . . . .</h3>
+          <p data-i18n="services.5.text">. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .</p>
         </article>
         <article>
-          <h3>Optimisation SEO</h3>
-          <p>Améliorez votre visibilité sur les moteurs de recherche pour que vos clients vous trouvent facilement.</p>
+          <h3 data-i18n="services.6.title">. . . . . . . . . . .</h3>
+          <p data-i18n="services.6.text">. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .</p>
         </article>
       </div>
     </div>
@@ -200,14 +219,14 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 2
 
   <section id="apropos">
     <div class="wrap about">
-      <h2>La technologie doit servir vos ambitions.</h2>
+      <h2 data-i18n="about.title">. . . . . . . . . . . . . . .</h2>
       <div>
-        <p>Nous sommes une équipe de spécialistes du numérique qui accompagne les entreprises dans la création et l’évolution de leurs outils digitaux. Notre approche associe réflexion stratégique, design soigné et développement de qualité.</p>
-        <p>Chaque projet est différent : nous prenons le temps de comprendre vos besoins avant de proposer une solution concrète.</p>
+        <p data-i18n="about.p1">. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .</p>
+        <p data-i18n="about.p2">. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .</p>
         <ul class="points">
-          <li>Un accompagnement clair, du conseil à la mise en ligne</li>
-          <li>Des solutions évolutives et adaptées à votre activité</li>
-          <li>Une attention particulière à l’expérience utilisateur</li>
+          <li data-i18n="about.point1">. . . . . . . . . . . . . . . . . . . . . . . .</li>
+          <li data-i18n="about.point2">. . . . . . . . . . . . . . . . . . . . . . . .</li>
+          <li data-i18n="about.point3">. . . . . . . . . . . . . . . . . . . . . . . .</li>
         </ul>
       </div>
     </div>
@@ -215,34 +234,22 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 2
 
   <section class="contact" id="contact">
     <div class="wrap">
-      <h2>Parlons de votre projet.</h2>
-      <p class="intro">Décrivez-nous votre idée. Nous vous répondons pour discuter des prochaines étapes, sans engagement.</p>
+      <h2 data-i18n="contact.title">. . . . . . . . . . . . . . .</h2>
+      <p class="intro" data-i18n="contact.intro">. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .</p>
       <div class="contact-grid">
         <div class="info">
-          <p><strong>Écrivez-nous</strong><a href="mailto:contact@novadigital.fr">contact@novadigital.fr</a></p>
-          <p><strong>Nous trouver</strong><span>Paris, France — accompagnement à distance</span></p>
-          <p><strong>Disponibilité</strong><span>Du lundi au vendredi, de 9 h à 18 h</span></p>
+          <p><strong data-i18n="contact.info1.label">. . . . . . . .</strong><span data-i18n="contact.info1.value">. . . . . . . . . . . . . .</span></p>
+          <p><strong data-i18n="contact.info2.label">. . . . . . . .</strong><span data-i18n="contact.info2.value">. . . . . . . . . . . . . .</span></p>
+          <p><strong data-i18n="contact.info3.label">. . . . . . . .</strong><span data-i18n="contact.info3.value">. . . . . . . . . . . . . .</span></p>
         </div>
         <form id="form">
           <div>
-            <label for="name">Votre nom</label>
-            <input id="name" type="text" autocomplete="name" required>
-          </div>
-          <div>
-            <label for="email">Votre e-mail</label>
-            <input id="email" type="email" autocomplete="email" required>
-          </div>
-          <div class="full">
-            <label for="subject">Sujet</label>
-            <input id="subject" type="text" required>
-          </div>
-          <div class="full">
-            <label for="message">Votre message</label>
+            <label for="message" data-i18n="form.message">Votre message</label>
             <textarea id="message" required></textarea>
           </div>
-          <div class="full" style="display:flex;flex-wrap:wrap;gap:12px;align-items:center">
-            <button class="btn" type="submit">Envoyer le message</button>
-            <span id="msg" role="status"></span>
+          <div class="form-actions">
+            <button class="btn" type="submit" data-i18n="form.send">Envoyer sur WhatsApp</button>
+            <span id="msg" role="status" aria-live="polite"></span>
           </div>
         </form>
       </div>
@@ -252,33 +259,147 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 2
 
 <footer>
   <div class="wrap">
-    <span>© <span id="y">2026</span> NeoTek Solutions Ltd. Tous droits réservés.</span>
-    <a href="#accueil">Retour en haut</a>
+    <span data-i18n="footer.copy">. . . . . . . . . . . . . . . . . . . . . . . .</span>
+    <a href="#accueil" data-i18n="footer.top" data-i18n-aria="a11y.top" aria-label="Retour en haut">. . . . . . . .</a>
   </div>
 </footer>
 
 <script>
-document.addEventListener('DOMContentLoaded', () => {
-  const logo = document.getElementById('bgLogo');
-  // Lancer la formation
-  logo.classList.add('form');
-  // Une fois formé → passer en mode flottant
-  logo.addEventListener('animationend', (e) => {
-    if (e.animationName === 'formLogo') {
-      logo.classList.remove('form');
-      logo.classList.add('float');
+(function () {
+  "use strict";
+
+  /* ------------------------------------------------------------------
+     Configuration
+  ------------------------------------------------------------------ */
+  var WHATSAPP_NUMBER = "237683405179";   // format international, sans « + »
+  var DEFAULT_LANG    = "fr";             // langue utilisée si celle du navigateur n'est ni FR ni EN
+
+  /* ------------------------------------------------------------------
+     Dictionnaire
+     Une clé absente du dictionnaire laisse le contenu HTML tel quel
+     (c'est le cas des sections en pointillés).
+     Pour remplir une section : ajoutez ex. "services.title" en fr ET en.
+  ------------------------------------------------------------------ */
+  var I18N = {
+    fr: {
+      "meta.title": "NeoTek Solutions Ltd — Bâtir l’avenir, une plateforme à la fois",
+      "meta.desc": "NeoTek Solutions Ltd, entreprise de technologie et de transformation digitale basée à Douala, au service des entreprises, des institutions et des entrepreneurs.",
+
+      "a11y.home": "NeoTek Solutions Ltd, accueil",
+      "a11y.nav": "Navigation principale",
+      "a11y.top": "Retour en haut",
+
+      "nav.services": "Services",
+      "nav.about": "À propos",
+      "nav.contact": "Contact",
+
+      "hero.title": "Bâtir l’avenir, une plateforme à la fois.",
+      "hero.lead": "NeoTek Solutions Ltd est une entreprise de technologie et de transformation digitale basée à Douala, au service des entreprises, des institutions et des entrepreneurs.",
+      "hero.cta1": "Démarrer un projet",
+      "hero.cta2": "Voir nos services",
+
+      "form.message": "Votre message",
+      "form.send": "Envoyer sur WhatsApp",
+      "wa.status": "WhatsApp va s’ouvrir avec votre message prêt à être envoyé.",
+      "wa.blocked": "Si WhatsApp ne s’ouvre pas, autorisez les fenêtres pop-up puis réessayez."
+    },
+    en: {
+      "meta.title": "NeoTek Solutions Ltd — Building the Future, One Platform at a Time",
+      "meta.desc": "NeoTek Solutions Ltd is a technology and digital transformation company based in Douala, serving businesses, institutions and entrepreneurs.",
+
+      "a11y.home": "NeoTek Solutions Ltd, home",
+      "a11y.nav": "Main navigation",
+      "a11y.top": "Back to top",
+
+      "nav.services": "Services",
+      "nav.about": "About",
+      "nav.contact": "Contact",
+
+      "hero.title": "Building the Future, One Platform at a Time.",
+      "hero.lead": "NeoTek Solutions Ltd is a technology and digital transformation company based in Douala, serving businesses, institutions and entrepreneurs.",
+      "hero.cta1": "Start a project",
+      "hero.cta2": "See our services",
+
+      "form.message": "Your message",
+      "form.send": "Send on WhatsApp",
+      "wa.status": "WhatsApp will open with your message ready to send.",
+      "wa.blocked": "If WhatsApp does not open, please allow pop-ups and try again."
+    }
+  };
+
+  /* ------------------------------------------------------------------
+     Détection de la langue du navigateur (français ou anglais)
+  ------------------------------------------------------------------ */
+  function detectLang() {
+    var list = (navigator.languages && navigator.languages.length)
+      ? navigator.languages
+      : [navigator.language || navigator.userLanguage || DEFAULT_LANG];
+    for (var i = 0; i < list.length; i++) {
+      var code = String(list[i]).toLowerCase().slice(0, 2);
+      if (code === "fr" || code === "en") return code;
+    }
+    return DEFAULT_LANG;
+  }
+
+  var lang = detectLang();
+  function t(key) { return I18N[lang][key]; }
+
+  function applyLang() {
+    var dict = I18N[lang];
+    document.documentElement.lang = lang;
+    document.title = dict["meta.title"];
+    var desc = document.querySelector('meta[name="description"]');
+    if (desc) desc.setAttribute("content", dict["meta.desc"]);
+
+    var nodes = document.querySelectorAll("[data-i18n]");
+    for (var i = 0; i < nodes.length; i++) {
+      var key = nodes[i].getAttribute("data-i18n");
+      if (key in dict) nodes[i].textContent = dict[key];
+    }
+    var aria = document.querySelectorAll("[data-i18n-aria]");
+    for (var j = 0; j < aria.length; j++) {
+      var k = aria[j].getAttribute("data-i18n-aria");
+      if (k in dict) aria[j].setAttribute("aria-label", dict[k]);
+    }
+  }
+  applyLang();
+
+  /* ------------------------------------------------------------------
+     Animation du logo d'arrière-plan
+  ------------------------------------------------------------------ */
+  var logo = document.getElementById("bgLogo");
+  logo.classList.add("form");
+  logo.addEventListener("animationend", function (e) {
+    if (e.animationName === "formLogo") {
+      logo.classList.remove("form");
+      logo.classList.add("float");
     }
   });
-});
-document.getElementById("y").textContent=new Date().getFullYear();
-// Le formulaire ouvre la messagerie du visiteur avec le message prérempli.
-document.getElementById("form").addEventListener("submit",function(e){
-  e.preventDefault();
-  var v=function(id){return document.getElementById(id).value.trim()};
-  var body="Nom : "+v("name")+"\nE-mail : "+v("email")+"\n\n"+v("message");
-  location.href="mailto:contact@novadigital.fr?subject="+encodeURIComponent(v("subject"))+"&body="+encodeURIComponent(body);
-  document.getElementById("msg").textContent="Votre messagerie va s’ouvrir pour envoyer le message.";
-});
+
+  /* ------------------------------------------------------------------
+     Formulaire → WhatsApp
+  ------------------------------------------------------------------ */
+  var form = document.getElementById("form");
+  var status = document.getElementById("msg");
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    var text = document.getElementById("message").value.trim();
+    if (!text) return;
+
+    var url = "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(text);
+
+    var win = window.open(url, "_blank", "noopener");
+    if (!win) {
+      // Pop-up bloquée : on ouvre WhatsApp dans l'onglet courant.
+      status.textContent = t("wa.blocked");
+      window.location.href = url;
+      return;
+    }
+    status.textContent = t("wa.status");
+  });
+})();
 </script>
 </body>
 </html>
