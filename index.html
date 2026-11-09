@@ -3,11 +3,32 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="NeoTek Solutions Ltd, entreprise de technologie et de transformation digitale basée à Douala, au service des entreprises, des institutions et des entrepreneurs.">
+<meta name="description" content="NeoTek Solutions, Douala : logiciels sur mesure, sites web, plateformes d’entreprise, cloud et cybersécurité pour entreprises et institutions en Afrique.">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+<meta name="author" content="NeoTek Solutions Ltd">
 <meta name="theme-color" content="#ffffff">
+
+<!-- Aperçu sur les réseaux sociaux et WhatsApp (mis à jour selon la langue par le script en bas de page).
+     À compléter quand le nom de domaine est connu :
+     <link rel="canonical" href="https://VOTRE-DOMAINE/">
+     <meta property="og:url" content="https://VOTRE-DOMAINE/">
+     <meta property="og:image" content="https://VOTRE-DOMAINE/logo-neotek.png">  (URL absolue obligatoire) -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="NeoTek Solutions Ltd">
+<meta property="og:title" content="NeoTek Solutions Ltd — Bâtir l’avenir, une plateforme à la fois">
+<meta property="og:description" content="NeoTek Solutions, Douala : logiciels sur mesure, sites web, plateformes d’entreprise, cloud et cybersécurité pour entreprises et institutions en Afrique.">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:locale:alternate" content="en_US">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="NeoTek Solutions Ltd — Bâtir l’avenir, une plateforme à la fois">
+<meta name="twitter:description" content="NeoTek Solutions, Douala : logiciels sur mesure, sites web, plateformes d’entreprise, cloud et cybersécurité pour entreprises et institutions en Afrique.">
+
 <title>NeoTek Solutions Ltd — Bâtir l’avenir, une plateforme à la fois</title>
 <link rel="preload" as="image" href="logo-neotek.png">
-<link rel="icon" href="/favicon.png" type="image/png">
+
+<!-- Favicon : le logo NeoTek (idéalement une version carrée, voir la note de livraison) -->
+<link rel="icon" type="image/png" href="logo-neotek.png">
+<link rel="apple-touch-icon" href="logo-neotek.png">
 <style>
 :root{
   --ink:#0f1f33;
@@ -138,6 +159,23 @@ form .btn{justify-self:start}
 /* Pied de page */
 footer{padding:28px 0;border-top:1px solid var(--line);color:var(--muted);font-size:.9rem}
 footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 24px}
+
+/* Pied de page : liens */
+.foot-links{display:flex;flex-wrap:wrap;align-items:center;gap:8px 20px}
+.foot-links a,.foot-links button{padding:0;border:0;background:none;color:var(--muted);font:inherit;cursor:pointer;text-decoration:underline;text-underline-offset:3px}
+.foot-links a:hover,.foot-links button:hover{color:var(--blue)}
+
+/* Fenêtre de confidentialité */
+.consent{position:fixed;z-index:50;left:20px;bottom:20px;width:min(420px,calc(100% - 40px));padding:22px;background:#fff;border:1px solid var(--line);border-top:3px solid var(--blue);border-radius:4px 4px 12px 12px;box-shadow:0 24px 48px -20px rgba(15,31,51,.45)}
+.consent[hidden]{display:none}
+.consent h2{max-width:none;font-size:1.1rem;font-weight:700;letter-spacing:-.01em;line-height:1.3}
+.consent p{margin-top:8px;color:var(--muted);font-size:.93rem}
+.consent p a{color:var(--blue);text-decoration:underline;text-underline-offset:3px}
+.consent .choices{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+.consent .btn{flex:1 1 140px;padding:10px 18px;font-size:.93rem;text-align:center}
+@media (prefers-reduced-motion:no-preference){.consent.show{animation:consentIn .35s cubic-bezier(.16,1,.3,1)}}
+@keyframes consentIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+@media (max-width:480px){.consent{left:12px;right:12px;bottom:12px;width:auto}}
 </style>
 </head>
 <body>
@@ -178,6 +216,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 2
           <a class="btn btn-ghost" href="#services" data-i18n="hero.cta2">Voir nos services</a>
         </div>
       </div>
+    </div>
   </section>
 
   <section class="services" id="services">
@@ -256,9 +295,23 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 2
 <footer>
   <div class="wrap">
     <span data-i18n="footer.copy">© 2026 NeoTek Solutions Ltd. Tous droits réservés.</span>
-    <a href="#accueil" data-i18n="footer.top" data-i18n-aria="a11y.top" aria-label="Retour en haut">Retour en haut</a>
+    <div class="foot-links">
+      <a href="politique-de-confidentialite.html" data-i18n="footer.privacy">Politique de confidentialité</a>
+      <button type="button" id="openConsent" data-i18n="footer.cookies">Gérer les cookies</button>
+      <a href="#accueil" data-i18n="footer.top" data-i18n-aria="a11y.top" aria-label="Retour en haut">Retour en haut</a>
+    </div>
   </div>
 </footer>
+
+<!-- Fenêtre de confidentialité (affichée à la première visite, rouvrable depuis le pied de page) -->
+<div class="consent" id="consent" role="dialog" aria-modal="false" aria-labelledby="consentTitle" aria-describedby="consentText" hidden>
+  <h2 id="consentTitle" data-i18n="consent.title">Votre vie privée</h2>
+  <p id="consentText"><span data-i18n="consent.text">Ce site utilise Google Analytics pour mesurer son audience. Ces mesures ne sont activées qu’avec votre accord.</span> <a href="politique-de-confidentialite.html" data-i18n="consent.more">Lire la politique de confidentialité</a></p>
+  <div class="choices">
+    <button type="button" class="btn btn-ghost" id="consentDeny" data-i18n="consent.deny">Refuser</button>
+    <button type="button" class="btn" id="consentAllow" data-i18n="consent.allow">Accepter</button>
+  </div>
+</div>
 
 <script>
 (function () {
@@ -278,7 +331,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 2
   var I18N = {
     fr: {
       "meta.title": "NeoTek Solutions Ltd — Bâtir l’avenir, une plateforme à la fois",
-      "meta.desc": "NeoTek Solutions Ltd, entreprise de technologie et de transformation digitale basée à Douala, au service des entreprises, des institutions et des entrepreneurs.",
+      "meta.desc": "NeoTek Solutions, Douala : logiciels sur mesure, sites web, plateformes d’entreprise, cloud et cybersécurité pour entreprises et institutions en Afrique.",
 
       "a11y.home": "NeoTek Solutions Ltd, accueil",
       "a11y.nav": "Navigation principale",
@@ -318,6 +371,14 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 2
       "contact.info3.value": "Cameroun, Afrique et international",
       "footer.copy": "© 2026 NeoTek Solutions Ltd. Tous droits réservés.",
       "footer.top": "Retour en haut",
+      "footer.privacy": "Politique de confidentialité",
+      "footer.cookies": "Gérer les cookies",
+
+      "consent.title": "Votre vie privée",
+      "consent.text": "Ce site utilise Google Analytics pour mesurer son audience. Ces mesures ne sont activées qu’avec votre accord.",
+      "consent.more": "Lire la politique de confidentialité",
+      "consent.allow": "Accepter",
+      "consent.deny": "Refuser",
 
       "hero.title": "Bâtir l’avenir, une plateforme à la fois.",
       "hero.lead": "NeoTek Solutions Ltd est une entreprise de technologie et de transformation digitale basée à Douala, au service des entreprises, des institutions et des entrepreneurs.",
@@ -331,7 +392,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 2
     },
     en: {
       "meta.title": "NeoTek Solutions Ltd — Building the Future, One Platform at a Time",
-      "meta.desc": "NeoTek Solutions Ltd is a technology and digital transformation company based in Douala, serving businesses, institutions and entrepreneurs.",
+      "meta.desc": "NeoTek Solutions, Douala: custom software, websites, enterprise platforms, cloud and cybersecurity for businesses and institutions across Africa.",
 
       "a11y.home": "NeoTek Solutions Ltd, home",
       "a11y.nav": "Main navigation",
@@ -371,6 +432,14 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 2
       "contact.info3.value": "Cameroon, Africa and international",
       "footer.copy": "© 2026 NeoTek Solutions Ltd. All rights reserved.",
       "footer.top": "Back to top",
+      "footer.privacy": "Privacy policy",
+      "footer.cookies": "Manage cookies",
+
+      "consent.title": "Your privacy",
+      "consent.text": "This site uses Google Analytics to measure its audience. These measurements are only enabled with your consent.",
+      "consent.more": "Read the privacy policy",
+      "consent.allow": "Accept",
+      "consent.deny": "Decline",
 
       "hero.title": "Building the Future, One Platform at a Time.",
       "hero.lead": "NeoTek Solutions Ltd is a technology and digital transformation company based in Douala, serving businesses, institutions and entrepreneurs.",
@@ -401,12 +470,25 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 2
   var lang = detectLang();
   function t(key) { return I18N[lang][key]; }
 
+  function setMeta(selector, value) {
+    var el = document.querySelector(selector);
+    if (el) el.setAttribute("content", value);
+  }
+
   function applyLang() {
     var dict = I18N[lang];
     document.documentElement.lang = lang;
     document.title = dict["meta.title"];
     var desc = document.querySelector('meta[name="description"]');
     if (desc) desc.setAttribute("content", dict["meta.desc"]);
+
+    // Aperçus sociaux (Open Graph / Twitter) et locale
+    setMeta('meta[property="og:title"]', dict["meta.title"]);
+    setMeta('meta[property="og:description"]', dict["meta.desc"]);
+    setMeta('meta[name="twitter:title"]', dict["meta.title"]);
+    setMeta('meta[name="twitter:description"]', dict["meta.desc"]);
+    setMeta('meta[property="og:locale"]', lang === "fr" ? "fr_FR" : "en_US");
+    setMeta('meta[property="og:locale:alternate"]', lang === "fr" ? "en_US" : "fr_FR");
 
     var nodes = document.querySelectorAll("[data-i18n]");
     for (var i = 0; i < nodes.length; i++) {
@@ -456,6 +538,54 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 2
     }
     status.textContent = t("wa.status");
   });
+
+  /* ------------------------------------------------------------------
+     Confidentialité : Google Analytics ne se charge qu'après accord
+  ------------------------------------------------------------------ */
+  var GA_ID = "G-XXXXXXXXXX";             // À REMPLACER par votre identifiant de mesure Google Analytics 4
+  var CONSENT_KEY = "neotek_consent";     // enregistre uniquement le choix : "granted" ou "denied"
+  var box = document.getElementById("consent");
+
+  function readConsent() { try { return localStorage.getItem(CONSENT_KEY); } catch (e) { return null; } }
+  function saveConsent(value) { try { localStorage.setItem(CONSENT_KEY, value); } catch (e) {} }
+  function gaConfigured() { return GA_ID.indexOf("XXXX") === -1; }
+
+  function loadAnalytics() {
+    if (!gaConfigured() || window.__gaLoaded) return;
+    window.__gaLoaded = true;
+    window["ga-disable-" + GA_ID] = false;
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function () { window.dataLayer.push(arguments); };
+    window.gtag("js", new Date());
+    window.gtag("config", GA_ID);
+    var s = document.createElement("script");
+    s.async = true;
+    s.src = "https://www.googletagmanager.com/gtag/js?id=" + encodeURIComponent(GA_ID);
+    document.head.appendChild(s);
+  }
+
+  function showConsent() {
+    box.hidden = false;
+    box.classList.remove("show");
+    void box.offsetWidth;               // relance l'animation d'apparition
+    box.classList.add("show");
+  }
+
+  document.getElementById("consentAllow").addEventListener("click", function () {
+    saveConsent("granted");
+    box.hidden = true;
+    loadAnalytics();
+  });
+  document.getElementById("consentDeny").addEventListener("click", function () {
+    saveConsent("denied");
+    box.hidden = true;
+    window["ga-disable-" + GA_ID] = true;   // coupe la mesure si elle avait été acceptée avant
+  });
+  document.getElementById("openConsent").addEventListener("click", showConsent);
+
+  var saved = readConsent();
+  if (saved === "granted") loadAnalytics();
+  if (!saved || location.hash === "#cookies") showConsent();   // #cookies : lien depuis la page de politique
 })();
 </script>
 </body>
