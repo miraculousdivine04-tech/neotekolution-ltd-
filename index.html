@@ -273,8 +273,8 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 2
       <p class="intro" data-i18n="contact.intro">Décrivez votre besoin en quelques lignes. Nous échangeons ensuite sur vos objectifs pour définir la solution adaptée.</p>
       <div class="contact-grid">
         <div class="info">
-          <p><strong data-i18n="contact.info1.label">Siège</strong><span data-i18n="contact.info1.value">Douala, Cameroun</span></p>
-          <p><strong data-i18n="contact.info2.label">WhatsApp</strong><span data-i18n="contact.info2.value">+237 620 79 18 43</span></p>
+          <p><strong data-i18n="contact.info1.label">Siège</strong><span data-i18n="contact.info1.value">Down Beach Bonamikano - Ancienne Route Bonaberi, Douala - Cameroon</span></p>
+          <p><strong data-i18n="contact.info2.label">Téléphone</strong><span data-i18n="contact.info2.value">(237) 233394555 / (237) 620791843</span></p>
           <p><strong data-i18n="contact.info3.label">Marchés</strong><span data-i18n="contact.info3.value">Cameroun, Afrique et international</span></p>
         </div>
         <form id="form">
@@ -364,9 +364,9 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 2
       "contact.title": "Parlons de votre projet",
       "contact.intro": "Décrivez votre besoin en quelques lignes. Nous échangeons ensuite sur vos objectifs pour définir la solution adaptée.",
       "contact.info1.label": "Siège",
-      "contact.info1.value": "Douala, Cameroun",
-      "contact.info2.label": "WhatsApp",
-      "contact.info2.value": "+237 620 79 18 43",
+      "contact.info1.value": "Down Beach Bonamikano - Ancienne Route Bonaberi, Douala - Cameroon",
+      "contact.info2.label": "Téléphone",
+      "contact.info2.value": "(237) 233394555 / (237) 620791843",
       "contact.info3.label": "Marchés",
       "contact.info3.value": "Cameroun, Afrique et international",
       "footer.copy": "© 2026 NeoTek Solutions Ltd. Tous droits réservés.",
@@ -425,9 +425,9 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 2
       "contact.title": "Let’s talk about your project",
       "contact.intro": "Describe your need in a few lines. We then discuss your objectives to define the right solution.",
       "contact.info1.label": "Headquarters",
-      "contact.info1.value": "Douala, Cameroon",
-      "contact.info2.label": "WhatsApp",
-      "contact.info2.value": "+237 620 79 18 43",
+      "contact.info1.value": "Down Beach Bonamikano - Ancienne Route Bonaberi, Douala - Cameroon",
+      "contact.info2.label": "Phone",
+      "contact.info2.value": "(237) 233394555 / (237) 620791843",
       "contact.info3.label": "Markets",
       "contact.info3.value": "Cameroon, Africa and international",
       "footer.copy": "© 2026 NeoTek Solutions Ltd. All rights reserved.",
@@ -529,13 +529,15 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 2
 
     var url = "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(text);
 
-    var win = window.open(url, "_blank", "noopener");
+    var win = window.open("about:blank", "_blank");
     if (!win) {
       // Pop-up bloquée : on ouvre WhatsApp dans l'onglet courant.
       status.textContent = t("wa.blocked");
       window.location.href = url;
       return;
     }
+    win.opener = null;
+    win.location.href = url;
     status.textContent = t("wa.status");
   });
 
@@ -551,9 +553,10 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 2
   function gaConfigured() { return GA_ID.indexOf("XXXX") === -1; }
 
   function loadAnalytics() {
-    if (!gaConfigured() || window.__gaLoaded) return;
-    window.__gaLoaded = true;
+    if (!gaConfigured()) return;
     window["ga-disable-" + GA_ID] = false;
+    if (window.__gaLoaded) return;
+    window.__gaLoaded = true;
     window.dataLayer = window.dataLayer || [];
     window.gtag = function () { window.dataLayer.push(arguments); };
     window.gtag("js", new Date());
